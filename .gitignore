@@ -1,0 +1,135 @@
+# -----------------------------------------------------------------------------
+# 仅保留仓库根（top-level）的文件被跟踪：忽略所有子目录
+# 说明：
+#  - 首先忽略仓库根下的所有内容（/*）
+#  - 解除对根级文件的忽略（!/*），以允许跟踪根目录下的文件
+#  - 然后重新忽略根级目录（/*/），以确保目录及其内容仍保持被忽略
+# 这样可以保留根目录文件被跟踪，同时忽略所有项目子文件夹（例如 css/, js/, img/）
+/*
+!/*
+/*/
+# -----------------------------------------------------------------------------
+
+# macOS
+.DS_Store
+.DocumentRevisions-V100
+.fseventsd
+.Spotlight-V100
+.Trashes
+.TemporaryItems
+.DS_Store?
+._*
+
+# Windows
+Thumbs.db
+ehthumbs.db
+Desktop.ini
+$RECYCLE.BIN/
+
+# Linux
+core.*
+
+# JetBrains
+.idea/
+*.iml
+*.iws
+*.ipr
+
+# Visual Studio
+*.suo
+*.ntvs*
+*.njsproj
+*.sln
+*.swx
+
+# 其他编辑器
+.atom/
+.sublime-*
+.vim/
+*.sublime-project
+*.sublime-workspace
+
+# 缓存
+.cache/
+.tmp/
+temp/
+*.tmp
+*.bak
+*~
+*.swp
+*.swo
+
+# Node / JavaScript
+node_modules/
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+.eslintcache
+.parcel-cache/
+.vite/
+
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+.Python
+venv/
+env/
+ENV/
+*.egg-info/
+.installed.cfg
+*.egg
+pip-wheel-metadata/
+
+# Go
+vendor/
+*.exe
+*.dll
+*.so
+*.a
+
+# Ruby / Rails
+.bundle/
+log/
+tmp/
+
+# PHP
+vendor/
+
+# Dart / Flutter
+.dart_tool/
+.packages
+.flutter-plugins
+.flutter-plugins-dependencies
+ios/Pods/
+
+# 日志
+logs/
+*.log
+*.log.*
+*.trace
+*.debug
+system.log
+application.log
+
+# 环境变量 / 密钥
+.env
+.env.*
+!.env.example
+
+*.pem
+*.key
+*.crt
+*.cert
+*.private
+*.token
+secret-*
+*.secret
+
+# 敏感配置
+config/local/
+config/private/
+*.credentials
+*.auth
+*.accesskey

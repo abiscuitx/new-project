@@ -1,0 +1,131 @@
+# 保留构建输出目录
+# dist/
+# build/
+# bin/
+# obj/
+# release/
+# debug/
+
+# macOS
+.DS_Store
+.DocumentRevisions-V100
+.fseventsd
+.Spotlight-V100
+.Trashes
+.TemporaryItems
+.DS_Store?
+._*
+
+# Windows
+Thumbs.db
+ehthumbs.db
+Desktop.ini
+$RECYCLE.BIN/
+
+# Linux
+core.*
+
+# JetBrains
+.idea/
+*.iml
+*.iws
+*.ipr
+
+# Visual Studio
+*.suo
+*.ntvs*
+*.njsproj
+*.sln
+*.swx
+
+# 其他编辑器
+.atom/
+.sublime-*
+.vim/
+*.sublime-project
+*.sublime-workspace
+
+# 缓存
+.cache/
+.tmp/
+temp/
+*.tmp
+*.bak
+*~
+*.swp
+*.swo
+
+# Node / JavaScript
+node_modules/
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+.eslintcache
+.parcel-cache/
+.vite/
+
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+.Python
+venv/
+env/
+ENV/
+*.egg-info/
+.installed.cfg
+*.egg
+pip-wheel-metadata/
+
+# Go
+vendor/
+*.exe
+*.dll
+*.so
+*.a
+
+# Ruby / Rails
+.bundle/
+log/
+tmp/
+
+# PHP
+vendor/
+
+# Dart / Flutter
+.dart_tool/
+.packages
+.flutter-plugins
+.flutter-plugins-dependencies
+ios/Pods/
+
+# 日志
+logs/
+*.log
+*.log.*
+*.trace
+*.debug
+system.log
+application.log
+
+# 环境变量 / 密钥
+.env
+.env.*
+!.env.example
+
+*.pem
+*.key
+*.crt
+*.cert
+*.private
+*.token
+secret-*
+*.secret
+
+# 敏感配置
+config/local/
+config/private/
+*.credentials
+*.auth
+*.accesskey
