@@ -102,22 +102,30 @@ echo ""
 
 declare -a found_files=()
 
-for pattern in "${patterns[@]}"; do
-    while IFS= read -r file; do
-        basename=$(basename "$file")
-        
-        matched=false
-        case "$basename" in
-            $pattern)
-                matched=true
-                ;;
-        esac
-        
-        if $matched; then
-            found_files+=("$file")
+# 更快的单次扫描实现：一次性读取所有 tracked files（NUL 分隔），再用单次 case 模式匹配 basename
+# 这样避免对每个 pattern 都调用 git ls-files，从 O(patterns * files) 降为 O(files)
+case_pattern=""
+{
+    # 构造 case 模式（pattern1|pattern2|...），注意保留 shell 通配符的语义
+    for p in "${patterns[@]}"; do
+        if [[ -z "$case_pattern" ]]; then
+            case_pattern="$p"
+        else
+            case_pattern+="|$p"
         fi
-    done < <(git ls-files -- "$scan_path")
-done
+    done
+}
+
+# 使用 NUL 安全的输出
+while IFS= read -r -d '' file; do
+    # git ls-files 输出的路径相对于仓库根或 scan_path
+    bname=$(basename "$file")
+    case "$bname" in
+        $case_pattern)
+            found_files+=("$file")
+            ;;
+    esac
+done < <(git ls-files -z -- "$scan_path")
 
 if [[ ${#found_files[@]} -gt 0 ]]; then
     IFS=$'\n' sorted_files=($(printf '%s\n' "${found_files[@]}" | sort -u))
