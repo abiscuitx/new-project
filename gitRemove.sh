@@ -11,6 +11,7 @@ set -euo pipefail
 
 patterns=(
     ".DS_Store"
+    ".env"
     "DocumentRevisions-V100"
     "fseventsd"
     "Spotlight-V100"
@@ -22,6 +23,31 @@ patterns=(
     "ehthumbs.db"
     "Desktop.ini"
     "core.*"
+    # Security-sensitive files / credentials / keys / certs
+    "*.pem"
+    "*.key"
+    "*.crt"
+    "*.cert"
+    "*.private"
+    "*.token"
+    "secret-*"
+    "*.secret"
+    "*.credentials"
+    "*.auth"
+    "*.accesskey"
+    "id_rsa"
+    "id_rsa.pub"
+    "id_dsa"
+    "id_dsa.pub"
+    "authorized_keys"
+    "known_hosts"
+    "ssh_config"
+    "credentials.json"
+    "credentials.yml"
+    "credentials.yaml"
+    "client_secret.json"
+    ".htpasswd"
+    ".htaccess"
 )
 
 apply_changes=false

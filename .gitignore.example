@@ -6,6 +6,9 @@
 # release/
 # debug/
 
+# 开发资料
+devdocs/
+
 # macOS
 .DS_Store
 .DocumentRevisions-V100
